@@ -1,5 +1,20 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{#validated-form
+  model        = changeset
+  on-submit    = (action "submit")
+  as |f|}}
 
-{{outlet}}
+  {{f.input label="First name" name="firstName"}}
+  {{f.input label="Last name" name="lastName"}}
+
+
+  {{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
+
+  {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
+  {{#if f.model.terms}}
+        {{f.input type="textarea" label="About me" name="aboutMe"}}
+  {{/if}}  
+    {{#f.input label="Inputmask" name="inputMask" as |fi|}}
+        {{one-way-input-mask fi.value mask='9999 AA' update=fi.update}}
+    {{/f.input}}
+  {{f.submit label="Save"}}
+{{/validated-form}}
