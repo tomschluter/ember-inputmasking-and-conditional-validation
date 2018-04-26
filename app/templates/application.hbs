@@ -9,14 +9,25 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
+
+            {{!-- Use validated-form to set up a form and link the changeset we defined in the controller --}}
             {{#validated-form model = changeset on-submit = (action "submit") as |f|}} 
-            {{f.input label="First name" name="firstName"}}
-            {{f.input label="Last name" name="lastName"}}
-            {{f.input type="checkbox" label="Enter description" name="enterDescription"}} 
-            {{#if f.model.enterDescription}}
-                {{f.input type="textarea" label="Description" name="description"}} 
-            {{/if}} 
-            {{#f.input label="Example inputmask" name="inputMask" as |fi|}} {{one-way-input-mask fi.value mask='9999 AA' class="form-control" update=fi.update}} {{/f.input}} {{f.submit label="Save"}}
+                {{f.input label="First name" name="firstName"}}
+                {{f.input label="Last name" name="lastName"}}
+                {{f.input type="checkbox" label="Enter description" name="enterDescription"}}
+
+                 {{!--Check if enterDescription is checked, if so.. display the description input  --}}
+                {{#if f.model.enterDescription}}
+                    {{f.input type="textarea" label="Description" name="description"}} 
+                {{/if}} 
+
+                {{!-- Use f.input block to include the ember-inputmask input, and link the fi.value and fi.update so we can handle validations.
+                      Also link the options object with the options input so we can change the default placeholder into '-'.
+                 --}}
+                {{#f.input label="Example inputmask" name="inputMask" as |fi|}} 
+                    {{one-way-input-mask fi.value mask='9999 AA' class="form-control" options=options update=fi.update}} 
+                {{/f.input}} 
+                {{f.submit label="Save"}}
             {{/validated-form}}
         </div>
     </div>
