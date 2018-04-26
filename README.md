@@ -1,6 +1,6 @@
 # form-input-conditional-validation
 
-This is a small proof of concept that utilizes different add-ons to create a form with input masking, validations and conditional validations, of which I couldn't find any examples or documentation (at least, not that I could find). So to help out anyone looking to achieve the same, I'll share my solution.
+This is a small proof of concept that utilizes different add-ons to create a form with input masking, validations and conditional validations, of which I couldn't find any examples or documentation. So to help out anyone looking to achieve the same, I'll share my solution.
 
 ## Prerequisites
 
