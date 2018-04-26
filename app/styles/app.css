@@ -1,0 +1,13 @@
+body {
+    background-color: #FAFAFA;
+}
+
+.box {
+    margin-top: 40px;
+    padding: 40px;
+    background-color: #FFF;
+    border-radius: 15px;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.2);
+    -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.2);
+    box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.2);
+}

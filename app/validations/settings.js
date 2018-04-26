@@ -18,10 +18,10 @@ import validateSometimes from 'ember-changeset-conditional-validations/validator
         validatePresence(true),
         validateLength({ is: 6})
     ],
-    aboutMe: validateSometimes([
+    description: validateSometimes([
         validatePresence(true),
         validateLength({ is: 4 })
       ], function(changes, content) {
-        return this.get('terms');
+        return this.get('enterDescription');
       })
   }

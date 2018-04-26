@@ -1,20 +1,23 @@
-{{#validated-form
-  model        = changeset
-  on-submit    = (action "submit")
-  as |f|}}
-
-  {{f.input label="First name" name="firstName"}}
-  {{f.input label="Last name" name="lastName"}}
-
-
-  {{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
-
-  {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
-  {{#if f.model.terms}}
-        {{f.input type="textarea" label="About me" name="aboutMe"}}
-  {{/if}}  
-    {{#f.input label="Inputmask" name="inputMask" as |fi|}}
-        {{one-way-input-mask fi.value mask='9999 AA' update=fi.update}}
-    {{/f.input}}
-  {{f.submit label="Save"}}
-{{/validated-form}}
+<div class="container box">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Ember Form</h1>
+            <p class="lead">
+                Ember form with input masking, validations and conditional validations.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            {{#validated-form model = changeset on-submit = (action "submit") as |f|}} 
+            {{f.input label="First name" name="firstName"}}
+            {{f.input label="Last name" name="lastName"}}
+            {{f.input type="checkbox" label="Enter description" name="enterDescription"}} 
+            {{#if f.model.enterDescription}}
+                {{f.input type="textarea" label="Description" name="description"}} 
+            {{/if}} 
+            {{#f.input label="Example inputmask" name="inputMask" as |fi|}} {{one-way-input-mask fi.value mask='9999 AA' class="form-control" update=fi.update}} {{/f.input}} {{f.submit label="Save"}}
+            {{/validated-form}}
+        </div>
+    </div>
+</div>
